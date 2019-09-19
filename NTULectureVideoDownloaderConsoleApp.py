@@ -79,8 +79,9 @@ titleLst = []
 
 for lst in myList:
     title = BeautifulSoup(str(lst),features="lxml").findAll("a")
-    title = re.findall(">(.*)<",str(title))
-    titleLst.append(title)
+    title = (title[0].get_text())
+    # title = re.findall(">(.*)<",str(title))
+    titleLst.append([title])
 
 print("Welcome to NTU Lecture Video Downloader")
 print("\n Please Select the Subject: ")
@@ -129,8 +130,9 @@ lectureNames = BeautifulSoup(str(containerHTML),features="lxml").findAll("li")
 lectureNamesList = []
 for (index,lectureName) in enumerate(lectureNames):
     name = BeautifulSoup(str(lectureName),features="lxml").findAll("a")
-    name = re.findall(";\">(.*)\<",str(name))
-    name = [name[0][:-7]]
+    name = [(name[0].get_text())]
+    # name = re.findall(";\">(.*)\<",str(name))
+    # name = [name[0][:-7]]
     print(str(index + 1) + ") " + name[0])
     lectureNamesList.append(name[0])
 
