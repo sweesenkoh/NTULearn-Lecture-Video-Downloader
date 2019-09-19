@@ -17,3 +17,11 @@ pip3 install bs4
 
 <img width="655" alt="image" src="https://user-images.githubusercontent.com/48687942/65212429-a359bd00-dad4-11e9-9e92-812ef1bfeffa.png">
 
+</br>
+
+### Can download all available videos in one click
+
+</br>
+<img width="676" alt="image" src="https://user-images.githubusercontent.com/48687942/65214099-41e91c80-dadb-11e9-8d34-3d0243cd6f9a.png">
+
+
