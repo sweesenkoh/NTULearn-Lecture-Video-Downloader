@@ -10,3 +10,7 @@ pip3 install selenium
 pip3 install bs4
 ```
 
+
+
+### Below is demo of how the console app looks like:
+<img width="666" alt="image" src="https://user-images.githubusercontent.com/48687942/65212365-6392d580-dad4-11e9-9181-0650319e134b.png">
