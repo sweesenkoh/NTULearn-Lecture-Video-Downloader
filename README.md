@@ -14,3 +14,6 @@ pip3 install bs4
 
 ### Below is demo of how the console app looks like:
 <img width="666" alt="image" src="https://user-images.githubusercontent.com/48687942/65212365-6392d580-dad4-11e9-9181-0650319e134b.png">
+
+<img width="655" alt="image" src="https://user-images.githubusercontent.com/48687942/65212429-a359bd00-dad4-11e9-9e92-812ef1bfeffa.png">
+
