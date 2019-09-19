@@ -1,5 +1,7 @@
 # NTU-Lecture-Video-Downloader
 
+*The code is currently very messy, i will clean it when i have time
+</br></br>
 This script helps to download NTU Lecture Video in a convenient way. This script will start by asking for ntulearn username and password. Using the information, it will show all the current modules you are taking and you can select any one of them to start downloading. 
 </br></br></br>
 ### Below are some dependencies to install before running: 
