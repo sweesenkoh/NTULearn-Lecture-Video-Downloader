@@ -49,17 +49,11 @@ while True:
     errorCheck = input("Are you sure the information are correct? press n to input again, press any other key to continue..")
     if (errorCheck == "n"):
         continue
-    
-    username = "ko0002en@student.main.ntu.edu.sg"
-    password = "Thisissecure4"
 
     print("\n\n\n")
     driver.get("https://ntulearn.ntu.edu.sg/webapps/login/")
-    # driver.find_element_by_id("user_id").send_keys(username)
     driver.find_element_by_id("userNameInput").send_keys(username)
-    # driver.find_element_by_id ("password").send_keys(password)
     driver.find_element_by_id("passwordInput").send_keys(password)
-    # driver.find_element_by_id("entry-login").click()
     driver.find_element_by_id("submitButton").click()
     driver.implicitly_wait(10)
 
@@ -123,10 +117,10 @@ while True:
     #     print("This course does not have downloadable lecture videos, please try another one: ")
     #     userChoice = int(input("Please enter the course number: "))
     
-    # driver.find_element_by_link_text(str(titleLst[userChoiceInt - 1][0])).click()
+  
     element = driver.find_element_by_link_text(str(titleLst[userChoiceInt - 1][0]))
     driver.execute_script("arguments[0].click();", element)
-    # driver.find_element_by_partial_link_text("Recorded Lectures").click()
+
     element = driver.find_element_by_partial_link_text("Recorded Lectures")
     driver.execute_script("arguments[0].click();", element)
     time.sleep(0.3)
@@ -222,7 +216,7 @@ while True:
             index = (lectureIndexChoice - 1 ) if (onlyOneVideo) else x
             element = driver.find_element_by_link_text(str(lectureNamesList[index]))
             driver.execute_script("arguments[0].click();", element)
-            
+
             if (onlyOneVideo == False):
                 print("Downloading video " + str(index + 1) + ": " + str(lectureNamesList[index]) + "\n")
             # driver.implicitly_wait(10)
