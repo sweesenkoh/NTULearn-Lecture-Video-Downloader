@@ -7,6 +7,20 @@ from bs4 import BeautifulSoup
 import urllib.request
 import ssl
 
+
+
+#Enter Credentials information here
+
+username = None
+password = None
+
+##
+
+
+
+
+
+
 options = Options()
 options.add_argument("--headless")
 options.add_argument('user-agent="Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; ja-jp) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20"')
@@ -44,13 +58,17 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     
 
 while True:
-    username = input("Please input ntulearn username:   ")
-    password = getpass.getpass('Password:')
-    errorCheck = input("Are you sure the information are correct? press n to input again, press any other key to continue..")
-    if (errorCheck == "n"):
-        continue
 
-    print("\n\n\n")
+    if (password is None) or (username is None):
+
+        username = input("Please input ntulearn username:   ")
+        password = getpass.getpass('Password:')
+        errorCheck = input("Are you sure the information are correct? press n to input again, press any other key to continue..")
+        if (errorCheck == "n"):
+            continue
+
+    print("\n Loading... \n\n")
+
     driver.get("https://ntulearn.ntu.edu.sg/webapps/login/")
     driver.find_element_by_id("userNameInput").send_keys(username)
     driver.find_element_by_id("passwordInput").send_keys(password)
@@ -66,6 +84,8 @@ while True:
     
     if (len(mydivs) == 0):
         print("Log in information not correct, try again")
+        username = None
+        password = None
         continue
     
     else:
