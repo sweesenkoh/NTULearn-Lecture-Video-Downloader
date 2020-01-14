@@ -73,15 +73,16 @@ while True:
     driver.find_element_by_id("userNameInput").send_keys(username)
     driver.find_element_by_id("passwordInput").send_keys(password)
     driver.find_element_by_id("submitButton").click()
-    driver.implicitly_wait(10)
-
+    driver.implicitly_wait(2)
+    driver.find_element_by_id("agree_button").click()
     html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
-    time.sleep(0.2)
+    time.sleep(2)
     lst = re.findall("termCourses",driver.page_source)
     mainCourseLink = driver.current_url
     soup = BeautifulSoup(driver.page_source,features="lxml")
     mydivs = soup.findAll("ul", {"class": "portletList-img courseListing coursefakeclass u_indent"})
-    
+    #mydivs = soup.findAll("ul", {"class": "portletList-img courseListing coursefakeclass"})
+
     if (len(mydivs) == 0):
         print("Log in information not correct, try again")
         username = None
@@ -92,16 +93,18 @@ while True:
         break
 
 while True:
-    
-    soup = BeautifulSoup(str(mydivs[0]),features="lxml")
-    myList = soup.findAll("li")
+
     titleLst = []
 
-    for lst in myList:
-        title = BeautifulSoup(str(lst),features="lxml").findAll("a")
-        title = (title[0].get_text())
-        # title = re.findall(">(.*)<",str(title))
-        titleLst.append([title])
+    for div in mydivs:
+        soup = BeautifulSoup(str(div),features="lxml")
+        myList = soup.findAll("li")
+
+        for lst in myList:
+            title = BeautifulSoup(str(lst),features="lxml").findAll("a")
+            title = (title[0].get_text())
+            # title = re.findall(">(.*)<",str(title))
+            titleLst.append([title])
 
     print("Welcome to NTU Lecture Video Downloader")
     print("\n Please Select the Subject: ")
@@ -246,7 +249,7 @@ while True:
 
             driver.switch_to.window(driver.window_handles[1])
             html = driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
-            time.sleep(1)
+            time.sleep(5)
             rls = re.findall('http.*mp4', driver.page_source)
             
             driver.close()
