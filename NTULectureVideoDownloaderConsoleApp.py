@@ -11,20 +11,15 @@ import ssl
 
 #Enter Credentials information here
 
-username = None
-password = None
+username = "WTENG002@student.main.ntu.edu.sg"
+password = ""
 
 ##
 
-
-
-
-
-
 options = Options()
 options.add_argument("--headless")
-options.add_argument('user-agent="Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; ja-jp) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20"')
-driver = webdriver.Chrome(options=options)
+# options.add_argument('user-agent="Mozilla/5.0 (iPod; U; CPU iPhone OS 2_1 like Mac OS X; ja-jp) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5F137 Safari/525.20"')
+driver = webdriver.Chrome(r'C:\Users\wilso\OneDrive\Desktop\chromedriver.exe', options=options)
 driver.set_window_size(3000, 3000)
 
 
@@ -121,6 +116,7 @@ while True:
             if (userChoiceInt <= 0 or userChoiceInt > len(titleLst)):
                 raise IndexError
             userChoiceTitle = str(titleLst[userChoiceInt - 1][0])
+            print(userChoiceTitle)
             
             if ("LEC" not in userChoiceTitle):
                 print("This course does not have downloadable lecture videos, please try another one: ")
@@ -257,7 +253,7 @@ while True:
             ssl._create_default_https_context = ssl._create_unverified_context
 
             urllib.request.urlretrieve(rls[0], str(lectureNamesList[index]) + ".mp4",show_progress)
-            print("\nSuccessfully donwloaded!")
+            print("\nSuccessfully downloaded!")
 
             if (onlyOneVideo):
                 break
