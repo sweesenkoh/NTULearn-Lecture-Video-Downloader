@@ -160,7 +160,7 @@ while True:
         print(str(index + 1) + ") " + name[0])
         lectureNamesList.append(name[0])
 
-
+                                                                                                                                                                                                                                                            
     print(str(len(lectureNamesList) + 1) + ") --- Download All")
     print(str(len(lectureNamesList) + 2) + ") --- Download subset: Download From start number to end number")
     print(str(len(lectureNamesList) + 3) + ") --- Go back to previous page")
